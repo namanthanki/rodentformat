@@ -1,0 +1,24 @@
+# Build outputs & binary directories
+bin/
+build/
+*.o
+*.obj
+*.exe
+*.out
+
+# Generated dataset & binary training files
+*.rodf
+*.rodfb
+*.vf
+*.binpack
+*.bin
+*.log
+
+# Editor & OS files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
