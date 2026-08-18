@@ -99,7 +99,7 @@ typedef struct {
     uint8_t  piece_data[4]; /* Nibble-packed piece types */
     int16_t  score_cp;   /* Centipawn score */
     uint8_t  wdl_u8;     /* 0=Loss, 128=Draw, 255=Win */
-    uint8_t  flags;      /* Bit 0: stm, Bits 1..3: King bucket, Bits 4..7: Castling */
+    uint8_t  flags;      /* Bit 0: stm (0=White, 1=Black), Bits 1..6: STM King Square (0..63), Bit 7: Reserved */
 } rodf_simd_record_t;
 #pragma pack(pop)
 
