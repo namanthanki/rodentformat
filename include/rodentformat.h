@@ -42,6 +42,14 @@ typedef enum {
     RODF_RESULT_WIN  = 2  /* White Win / Black Loss */
 } rodf_result_t;
 
+/* Move Types */
+typedef enum {
+    RODF_MOVE_NORMAL = 0,
+    RODF_MOVE_ENPASSANT = 1,
+    RODF_MOVE_CASTLE = 2,
+    RODF_MOVE_PROMO = 3
+} rodf_move_type_t;
+
 /* Packed Move (16-bit) */
 typedef struct {
     uint16_t from_sq    : 6; /* 0..63 */
