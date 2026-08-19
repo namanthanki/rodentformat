@@ -13,7 +13,7 @@ endif
 
 .PHONY: all check-header test-dfrc clean
 
-all: bin check-header
+all: bin check-header test-dfrc
 
 bin:
 	@$(MKDIR)
@@ -22,6 +22,10 @@ bin:
 check-header:
 	$(CC) $(CFLAGS) -fsyntax-only include/rodentformat.h
 	@echo [OK] include/rodentformat.h compiles cleanly.
+
+test-dfrc: bin
+	$(CC) $(CFLAGS) -o bin/test_dfrc$(EXEC_EXT) tests/test_dfrc.c src/dfrc.c
+	@bin/test_dfrc$(EXEC_EXT)
 
 clean:
 	@$(RM)

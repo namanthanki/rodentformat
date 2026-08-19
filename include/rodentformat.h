@@ -111,6 +111,11 @@ typedef struct {
 } rodf_simd_record_t;
 #pragma pack(pop)
 
+
+bool rodf_board_from_dfrc(rodf_board_t *board, uint16_t white_idx, uint16_t black_idx);
+
+uint16_t rodf_rank1_to_frc(const uint8_t rank1[8]);
+
 #ifdef __cplusplus
 }
 #endif
