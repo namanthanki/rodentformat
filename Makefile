@@ -1,5 +1,6 @@
 CC = gcc
 CFLAGS = -O3 -Wall -Wextra -Werror -std=c99 -pedantic -Iinclude
+SRC = src/dfrc.c src/board.c src/format.c src/convert_vf.c
 
 ifeq ($(OS),Windows_NT)
     MKDIR = if not exist bin mkdir bin
@@ -13,10 +14,15 @@ endif
 
 .PHONY: all check-header test-dfrc test-board test-roundtrip test-convert clean
 
-all: bin check-header test-dfrc test-board test-roundtrip test-convert
+all: bin check-header bin/rodf-tool$(EXEC_EXT) test-dfrc test-board test-roundtrip test-convert
 
 bin:
 	@$(MKDIR)
+
+# CLI Binary
+bin/rodf-tool$(EXEC_EXT): $(SRC) cmd/rodf_tool.c
+	$(CC) $(CFLAGS) -o $@ $^
+	@echo [OK] Built bin/rodf-tool$(EXEC_EXT)
 
 # Verify include/rodentformat.h has valid C syntax and self-contained headers
 check-header:
