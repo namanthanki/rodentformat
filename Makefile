@@ -11,9 +11,9 @@ else
     EXEC_EXT =
 endif
 
-.PHONY: all check-header test-dfrc test-board test-roundtrip clean
+.PHONY: all check-header test-dfrc test-board test-roundtrip test-convert clean
 
-all: bin check-header test-dfrc test-board test-roundtrip
+all: bin check-header test-dfrc test-board test-roundtrip test-convert
 
 bin:
 	@$(MKDIR)
@@ -34,6 +34,10 @@ test-board: bin
 test-roundtrip: bin
 	$(CC) $(CFLAGS) -o bin/test_roundtrip$(EXEC_EXT) tests/test_roundtrip.c src/format.c src/dfrc.c
 	@bin/test_roundtrip$(EXEC_EXT)
+
+test-convert: bin
+	$(CC) $(CFLAGS) -o bin/test_convert$(EXEC_EXT) tests/test_convert.c src/convert_vf.c src/format.c src/dfrc.c
+	@bin/test_convert$(EXEC_EXT)
 
 clean:
 	@$(RM)

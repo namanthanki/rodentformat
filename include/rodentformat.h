@@ -153,6 +153,12 @@ size_t rodf_decode_game(const uint8_t *in_buf, size_t buf_size, rodf_game_t *out
  */
 void rodf_board_to_simd(const rodf_board_t *board, int16_t score_cp, uint8_t wdl_result, rodf_simd_record_t *out_rec);
 
+/**
+ * @brief Convert a Viriformat (.vf) game buffer directly to a rodf_game_t structure.
+ * @return Number of bytes consumed from vf_buf, or 0 on error.
+ */
+size_t rodf_convert_from_viriformat(const uint8_t *vf_buf, size_t vf_len, rodf_game_t *out_game);
+
 #ifdef __cplusplus
 }
 #endif
