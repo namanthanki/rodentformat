@@ -136,6 +136,23 @@ bool rodf_board_to_fen(const rodf_board_t *board, char *fen_buf, size_t buf_size
  */
 bool rodf_make_move(rodf_board_t *board, rodf_move_t move);
 
+/**
+ * @brief Encode a game to a binary buffer in .rodf format.
+ * @return Number of bytes written, or 0 on error.
+ */
+size_t rodf_encode_game(const rodf_game_t *game, uint8_t *out_buf, size_t max_size);
+
+/**
+ * @brief Decode a game from a binary buffer in .rodf format.
+ * @return Number of bytes consumed, or 0 on error.
+ */
+size_t rodf_decode_game(const uint8_t *in_buf, size_t buf_size, rodf_game_t *out_game);
+
+/**
+ * @brief Convert a single board position to a 16-byte SIMD training record.
+ */
+void rodf_board_to_simd(const rodf_board_t *board, int16_t score_cp, uint8_t wdl_result, rodf_simd_record_t *out_rec);
+
 #ifdef __cplusplus
 }
 #endif
