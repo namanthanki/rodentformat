@@ -111,10 +111,30 @@ typedef struct {
 } rodf_simd_record_t;
 #pragma pack(pop)
 
-
+/**
+ * @brief Initialize a board from White & Black DFRC / Chess960 indices (0..959).
+ */
 bool rodf_board_from_dfrc(rodf_board_t *board, uint16_t white_idx, uint16_t black_idx);
 
+/**
+ * @brief Convert starting 1st rank pieces back to FRC 960 index (0..959).
+ */
 uint16_t rodf_rank1_to_frc(const uint8_t rank1[8]);
+
+/**
+ * @brief Convert standard FEN string to rodf_board_t.
+ */
+bool rodf_board_from_fen(rodf_board_t *board, const char *fen);
+
+/**
+ * @brief Export rodf_board_t to FEN string.
+ */
+bool rodf_board_to_fen(const rodf_board_t *board, char *fen_buf, size_t buf_size);
+
+/**
+ * @brief Apply a rodf_move_t to the board state.
+ */
+bool rodf_make_move(rodf_board_t *board, rodf_move_t move);
 
 #ifdef __cplusplus
 }
