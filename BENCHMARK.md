@@ -1,6 +1,6 @@
 # Benchmark: 1.33B Position Conversion
 
-This document records the results of running `rodf-tool convert` on a real 5.5 GB Viriformat (`.vf`) dataset.
+This document records the results of running `rodf-tool convert` on a real 5.50 GiB (5.90 GB) Viriformat (`.vf`) dataset.
 
 ## Dataset Information
 
@@ -13,12 +13,12 @@ This document records the results of running `rodf-tool convert` on a real 5.5 G
 
 ## File Size Comparison
 
-| Format | File Size | Difference |
-| :--- | :--- | :--- |
-| Viriformat (`.vf`) | 5,900,524,788 bytes (5.90 GB) | Baseline |
-| RodentFormat (`.rodf`) | 5,456,677,664 bytes (5.08 GB) | -443,847,124 bytes (-443.8 MB) |
+| Format | File Size (Bytes) | Size (GiB) | Size (GB) | Difference |
+| :--- | :--- | :--- | :--- | :--- |
+| Viriformat (`.vf`) | 5,900,524,788 | 5.50 GiB | 5.90 GB | Baseline |
+| RodentFormat (`.rodf`) | 5,456,677,664 | 5.08 GiB | 5.46 GB | -423.3 MiB (-443.8 MB) |
 
-The 443.8 MB reduction comes entirely from replacing Viriformat's 36-byte starting board headers with RodentFormat's 8-byte Scharnagl DFRC headers.
+The 423.3 MiB (443.8 MB) reduction comes entirely from replacing Viriformat's 36-byte starting board headers with RodentFormat's 8-byte Scharnagl DFRC headers.
 
 ---
 
